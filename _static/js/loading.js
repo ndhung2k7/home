@@ -138,3 +138,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+window.addEventListener("load", () => {
+  horizontalIndex = 0;
+  verticalPositions = [0, 0];
+  updateTransforms();
+});
