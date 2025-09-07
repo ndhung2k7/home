@@ -121,18 +121,29 @@
 
 <script src="_static/js/loading.js"></script>
 <script>
-  // Gán video phù hợp thiết bị
+  // Kiểm tra thiết bị
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-  document.getElementById('bgVideo1').src = isMobile ? "https://files.catbox.moe/yy5ptr.mp4" : "_static/avatar/pc1.mp4";
-  document.getElementById('bgVideo2').src = isMobile ? "https://files.catbox.moe/5osj04.mp4" : "_static/avatar/pc2.mp4";
+
+  if (isMobile) {
+    // Nếu là mobile => thay video bằng ảnh PNG
+    document.getElementById('bgVideo1').outerHTML = 
+      '<img id="bgImage1" src="_static/avatar/mobile1.png" alt="Background Mobile 1" class="bg-img">';
+    document.getElementById('bgVideo2').outerHTML = 
+      '<img id="bgImage2" src="_static/avatar/mobile2.png" alt="Background Mobile 2" class="bg-img">';
+  } else {
+    // Nếu là PC => dùng video bình thường
+    document.getElementById('bgVideo1').src = "_static/avatar/pc1.mp4";
+    document.getElementById('bgVideo2').src = "_static/avatar/pc2.mp4";
+  }
 
   // Ẩn loading sau khi toàn bộ nội dung tải xong
   window.addEventListener('load', () => {
     setTimeout(() => {
       document.getElementById('loadingScreen').classList.add('hidden');
-    }, 300); // Delay nhỏ cho mượt
+    }, 300);
   });
 </script>
+
 
 </body>
 </html>
