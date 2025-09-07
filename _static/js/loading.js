@@ -74,7 +74,7 @@ setInterval(() => {
 }, 5000);
 
 // ⬆️ Thêm chạm vào bất kỳ đâu trong hiệu ứng để tự động chuyển sang bio
-["click"].forEach(evt => {
+["click", "touchstart"].forEach(evt => {
   document.querySelector(".effect1").addEventListener(evt, () => {
     if (verticalPositions[0] === 0) {
       verticalPositions[0] = 1;
@@ -137,9 +137,4 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-});
-window.addEventListener("load", () => {
-  horizontalIndex = 0;
-  verticalPositions = [0, 0];
-  updateTransforms();
 });
